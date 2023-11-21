@@ -6,6 +6,8 @@ create table users
     lname    varchar(100) not null,
     age      integer      not null
         constraint users_age_check
+            check (age >= 18)
+        constraint users_age_check1
             check (age >= 18),
     username varchar(100) not null,
     password varchar(100) not null,
