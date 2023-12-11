@@ -1,8 +1,8 @@
 create view view_roles(role_id, role) as
-SELECT roles.role_id,
-       roles.role
+SELECT role_id,
+       role
 FROM roles
-WHERE roles.role_id IS NOT NULL
+WHERE role_id IS NOT NULL
 with cascaded check option;
 
 alter table view_roles

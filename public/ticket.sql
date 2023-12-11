@@ -2,18 +2,14 @@ create table ticket
 (
     ticket_id      serial
         primary key,
-    destination_id integer   not null
+    destination_id integer not null
         constraint fk_destination_id
             references destination,
-    user_id        integer
-        constraint fk_user_id
-            references users,
-    fname          char(100) not null,
-    lname          char(100) not null,
+    user_id        integer,
     plane_id       integer
         constraint fk_plane_id
             references plane,
-    date           date      not null,
+    date           date    not null,
     status         varchar(100) default 'active'::character varying
 );
 

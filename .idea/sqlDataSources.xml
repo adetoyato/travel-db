@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="b3eb0a8e-ed85-4fd2-85aa-ac0a8d345214" name="DDL Mapping">
+      <data-sources db="16aff53d-2a78-474b-804d-4c9c83a250ef" ddl="d46d749b-6a2c-4b96-980a-987c1c75e006" />
+      <scope>
+        <node kind="database" qname="travel_db">
+          <node kind="schema" negative="1" />
+        </node>
+      </scope>
+    </mapping>
+  </component>
   <component name="SqlDataSourceStorage">
     <option name="dataSources">
       <list>
