@@ -5,7 +5,9 @@ create table ticket
     destination_id integer not null
         constraint fk_destination_id
             references destination,
-    user_id        integer,
+    user_id        integer
+        constraint fk_user_id
+            references users,
     plane_id       integer
         constraint fk_plane_id
             references plane,
