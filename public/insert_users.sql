@@ -1,11 +1,8 @@
-create procedure insert_users(IN p_user_id integer, IN p_fname character, IN p_lname character, IN p_age integer, IN p_username character varying, IN p_password character varying, IN p_role_id integer)
+create procedure insert_users(INOUT p_fname character, INOUT p_lname character, INOUT p_age integer, INOUT p_username character varying, INOUT p_password character varying, INOUT p_role_id integer)
     language plpgsql
 as
 $$
 BEGIN
-    if p_user_id is NULL then
-        RAISE EXCEPTION 'user_is must have a value';
-    end if;
 
     if p_fName is NULL then
         RAISE EXCEPTION 'Please enter first name.';
@@ -27,14 +24,11 @@ BEGIN
         RAISE EXCEPTION 'Please enter password.';
     end if;
 
-    if p_role_id is NULL then
-        RAISE EXCEPTION 'role_id must have a value.';
-    end if;
+    insert into users(fName, lName, age, username, password, role_id)
+    values(p_fName, p_lName, p_age, p_username, p_password, p_role_id);
 
-    insert into users(user_id, fName, lName, age, username, password, role_id)
-    values(p_user_id, p_fName, p_lName, p_age, p_username, p_password, p_role_id);
 END;
 $$;
 
-alter procedure insert_users(integer, char, char, integer, varchar, varchar, integer) owner to postgres;
+alter procedure insert_users(inout char, inout char, inout integer, inout varchar, inout varchar, inout integer) owner to postgres;
 

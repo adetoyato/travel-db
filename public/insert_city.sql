@@ -11,16 +11,12 @@ BEGIN
         RAISE EXCEPTION 'city_id must have a value';
     end if;
 
-    if p_country_name is NULL then
-        RAISE EXCEPTION 'Please enter a country name.';
-    end if;
-
     if p_city_name is NULL then
         RAISE EXCEPTION 'Please enter a city name.';
     end if;
 
-    insert into cities(city_id, country_id, country_name, city_name)
-    values(p_city_id, p_country_id, p_country_name, p_city_name);
+    insert into cities(city_id, country_id, city_name)
+    values(p_city_id, p_country_id, p_city_name);
 
 END;
 $$;
